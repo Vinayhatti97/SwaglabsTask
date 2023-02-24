@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <parameter name="browserName" value="chrome"></parameter>
+<suite name="All Test Suite" parallel="tests" >
 
-    <test verbose="2" preserve-order="true" name="VerifyProductTitle">
+    <test verbose="2" preserve-order="true" name="VerifyProductTitle" >
+        <parameter name="browserName" value="chrome"></parameter>
         <parameter name="username" value="problem_user"></parameter>
         <parameter name="password" value="secret_sauce"></parameter>
         <classes>
@@ -16,7 +16,8 @@
         </classes>
     </test>
 
-    <test verbose="2" preserve-order="true" name="verifylowestPrice">
+    <test verbose="2" preserve-order="true" name="verifylowestPrice" >
+        <parameter name="browserName" value="edge"></parameter>
         <parameter name="username" value="standard_user"></parameter>
         <parameter name="password" value="secret_sauce"></parameter>
         <classes>
@@ -30,6 +31,7 @@
     </test>
 
     <test verbose="2" preserve-order="true" name="Verifycheckoutreviewandthankyoumessage">
+        <parameter name="browserName" value="edge"></parameter>
         <parameter name="username" value="standard_user"></parameter>
         <parameter name="password" value="secret_sauce"></parameter>
      <!-- <parameter name="firstname" value="Sheldon"></parameter> -->

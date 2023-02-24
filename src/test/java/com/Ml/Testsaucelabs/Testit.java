@@ -9,19 +9,27 @@ import com.Readfromfile.Readfromjson;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Testit extends Baseclass {
 
-
+    DesiredCapabilities desiredCapabilities;
+    ChromeOptions chromeOptions;
+    EdgeOptions edgeOptions;
     SwagslabloginPage swagslabloginPage;
     SwaglabsHomepage swaglabsHomepage;
     Swaglabscartpage swaglabscartpage;
@@ -35,6 +43,7 @@ public class Testit extends Baseclass {
         swaglabscartpage = new Swaglabscartpage(driver);
         swaglabscheckoutoverviewpage = new Swaglabscheckoutoverviewpage(driver);
     }
+
 
 
     @Test
@@ -54,7 +63,7 @@ public class Testit extends Baseclass {
     }
     @Parameters({"username","password"})
     @Test
-    public  void verifyLowestPrice(String username, String password){
+    public void verifyLowestPrice(String username, String password){
      swagslabloginPage.loginSwaglabs(username, password);
      String priceinhomepage =String.valueOf(swaglabsHomepage.getlowestprice());
         System.out.println("Item price in home page: "+ priceinhomepage);

@@ -39,7 +39,7 @@ public class SeleniumActions {
 
     public boolean EnterValueOnTextfield(WebElement element , String value) {
 
-        boolean flag = false;
+        boolean flag = true;
 
         try {
             element.sendKeys(value);
@@ -52,6 +52,7 @@ public class SeleniumActions {
         catch (StaleElementReferenceException Ser) {
             // TODO: handle exception
             System.out.println(Ser.toString());
+            flag = false;
         }
         catch (ElementNotInteractableException eni) {
             // TODO: handle exception
@@ -72,10 +73,10 @@ public class SeleniumActions {
         }
     }
 
-    public boolean selectValueFromDropDown(WebElement element, String data, String typeSelect){
-        try{
+    public boolean selectValueFromDropDown(WebElement element, String data, String typeSelect) {
+        try {
             Select select = new Select(element);
-            switch (typeSelect){
+            switch (typeSelect) {
                 case "index":
                     select.selectByIndex(Integer.parseInt(data));
                     break;
@@ -87,9 +88,15 @@ public class SeleniumActions {
                     break;
             }
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
 
             return false;
         }
     }
-}
+        public void javaScriptExcecutorClick(WebElement element, WebDriver driver){
+            JavascriptExecutor jse = (JavascriptExecutor) driver;
+            jse.executeScript("argument[0].click();", element);
+        }
+
+    }
+

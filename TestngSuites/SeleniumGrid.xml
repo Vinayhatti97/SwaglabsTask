@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="tests" >
+<parameter name="serverlink" value="http://172.18.1.76:4444"></parameter>
+
+    <test verbose="2" preserve-order="true" name="VerifyProductTitle" >
+        <parameter name="browserName" value="chrome"></parameter>
+        <parameter name="username" value="problem_user"></parameter>
+        <parameter name="password" value="secret_sauce"></parameter>
+        <classes>
+            <class name="com.Ml.Testsaucelabs.Testit">
+                <methods>
+                    <include name="launchApp"/>
+                    <include name="verifyproductTitle"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test verbose="2" preserve-order="true" name="verifylowestPrice" >
+        <parameter name="browserName" value="chrome"></parameter>
+        <parameter name="username" value="standard_user"></parameter>
+        <parameter name="password" value="secret_sauce"></parameter>
+        <classes>
+            <class name="com.Ml.Testsaucelabs.Testit">
+                <methods>
+                    <include name="launchApp"/>
+                    <include name="verifyLowestPrice"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test verbose="2" preserve-order="true" name="Verifycheckoutreviewandthankyoumessage">
+        <parameter name="browserName" value="chrome"></parameter>
+        <parameter name="username" value="standard_user"></parameter>
+        <parameter name="password" value="secret_sauce"></parameter>
+        <!-- <parameter name="firstname" value="Sheldon"></parameter> -->
+        <!-- <parameter name="lastname" value="Cooper"></parameter> -->
+        <!--<parameter name="zipcode" value="585103"></parameter> -->
+        <classes>
+            <class name="com.Ml.Testsaucelabs.Testit">
+                <methods>
+                    <include name="launchApp"/>
+                    <include name="Verifycheckoutreviewandthankyoumessage"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
